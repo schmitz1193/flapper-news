@@ -24,7 +24,6 @@
     <div class="page-header">
       <h1>Flapper News</h1>
     </div>
-
     <div ng-repeat="post in posts | orderBy:'-upvotes'">
       <span class="glyphicon glyphicon-thumbs-up"
         ng-click="incrementUpvotes(post)"></span>
@@ -35,10 +34,10 @@
         </a>
         <span ng-hide="post.link">
           {{post.title}}
-        </span>
-      </span>
       <span>
         <a href="#/posts/{{$index}}">Comments</a>
+      </span>
+        </span>
       </span>
     </div>
 
@@ -60,29 +59,17 @@
       </div>
       <button type="submit" class="btn btn-primary">Post</button>
     </form>
-    <form ng-submit="addComment()"
-      style="margin-top:30px;">
-      <h3>Add a new comment</h3>
-
-      <div class="form-group">
-        <input type="text"
-        class="form-control"
-        placeholder="Comment"
-        ng-model="body"></input>
-      </div>
-      <button type="submit" class="btn btn-primary">Post</button>
-    </form>
   </script>    <!-- end home.html inline tag-->
 
   <!--  inline tag for posts -->
   <script type="text/ng-template" id="/posts.html">
     <div class="page-header">
-      <h3>
+      <h3>{{post.title}}
         <a ng-show="post.link" href="{{post.link}}">
-          {{post.title}}
+          {{post.link}}
         </a>
         <span ng-hide="post.link">
-          {{post.title}}
+          {{post.link}}
         </span>
       </h3>
     </div>
@@ -95,6 +82,18 @@
         {{comment.body}}
       </span>
     </div>
+    <form ng-submit="addComment()"
+      style="margin-top:30px;">
+      <h3>Add a new comment</h3>
+
+      <div class="form-group">
+        <input type="text"
+        class="form-control"
+        placeholder="Comment"
+        ng-model="body"></input>
+      </div>
+      <button type="submit" class="btn btn-primary">Post</button>
+    </form>
   </script>  <!-- end inline tag for posts -->
 
 
